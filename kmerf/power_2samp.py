@@ -22,7 +22,7 @@ def _perm_stat(test, test_name, sim, n=100, p=1, noise=True):
     Generates null and alternate distributions
     """
     u, v = rot_ksamp(sim, n, p, noise=noise, pow_type="dim")
-    if test_name == "KMERF":
+    if test_name in ["KMERF","MIRF"]:
         x, y = k_sample_transform([u, v], test_type="rf")
     else:
         x, y = k_sample_transform([u, v])
